@@ -21,5 +21,20 @@
     <main>
       <%- body %>
     </main>       
+    <script src="https://unpkg.com/masonry.layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+      window.onload = function () {
+        const grid = document.querySelector('.masonry');
+        if (grid) {
+          new Masonry(grid, {
+            itemSelector: '.card',
+            columnWidth: '.card',
+            gutter: 10,
+            fitWidth: true
+          });
+        }
+      };
+    </script>
+        
   </body>
 </html>
