@@ -1,0 +1,19 @@
+<% layout('layout') %>
+
+<h2>My Dashboard</h2>
+
+<form method="POST" action="/add-image" class="upload-form">
+  <input type="url" name="imageUrl" plaveholder="Paste image URL here" required>
+  <button type="submit">Add Image</button>
+</form>
+
+  <div class="masonry">
+    <% images.forEach(img => { %>
+      <div class="card">
+        <img src="<%= img.imageUrl %>" alt="Image" onerror="this.src='/placeholder.png'">
+        <form method="POST" action="/delete-image/<%= img._id %>">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
