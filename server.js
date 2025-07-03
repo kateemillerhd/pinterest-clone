@@ -5,6 +5,8 @@ const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const dotenv = require('dotenv');
 const path = require('path');
+const indexRoutes = require('./routes/index');
+const authRoutes = require('./routes/auth');
 
 dotenv.config();
 const app = express();
@@ -40,6 +42,9 @@ passport.use(new GitHubStrategy({
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
+
+app.use('/', indexRoutes);
+app.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {
   res.render('home', { user: req.user });
