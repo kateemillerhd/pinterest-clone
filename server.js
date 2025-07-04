@@ -53,6 +53,7 @@ app.get('/', (req, res) => {
   res.render('home', { user: req.user });
 });
 
+
 app.get('/auth/github', passport.authenticate('github'));
 
 app.get('/auth/github/callback',
