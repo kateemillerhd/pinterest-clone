@@ -8,7 +8,7 @@
   <div class="masonry">
     <% images.forEach(img => { %>
       <div class="card">
-        <img src="<%= img.imageUrl %>" alt="Image" onerror="this.src='/placeholder.png'">
+        <img src="<%= img.imageUrl %>" alt="Image" onerror="this.src='/placeholder_image.png';">
         <form method="POST" action="/delete-image/<%= img._id %>">
           <button type="submit">Delete</button>
         </form>
