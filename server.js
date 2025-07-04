@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
+app.set('layout', 'layout');
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -61,7 +62,7 @@ app.get('/auth/github/callback',
        });
 
 app.get('/logout', (req, res) => {
-  req.logout()) => res.redirect('/'));
+  req.logout(() => res.redirect('/'));
 });
 
 app.listen(PORT, () => {

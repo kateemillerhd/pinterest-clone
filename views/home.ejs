@@ -1,12 +1,10 @@
-<% layout('layout') %>
-
 <h2>All Shared Images</h2>
 
-  <div class="masonry">
-    <% images.forEach(img => { %>
-      <div class="card">
-        <img src="<%= img.imageUrl %>" alt="Image" onerror="this.src='/placeholder.png'">
-        <p>Shared by: <%= img.username %></p>
-      </div>
-    <% }) %>
-  </div>
+<div class="masonry">
+  <% images.forEach(img => { %>
+    <div class="card">
+      <img src="<%= img.imageUrl %>" alt="Image" onerror="this.src='/placeholder.png'">
+      <p>Shared by: <%= img.username %></p>
+    </div>
+  <% }) %>
+</div>
