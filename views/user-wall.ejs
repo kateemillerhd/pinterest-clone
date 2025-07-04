@@ -1,0 +1,10 @@
+<h2><%= username %>'s Wall</h2>
+
+<div calss="masonry">
+  <% images.forEach(img => { %>
+    <div class="card">
+      <img src="<%= img.imageUrl %>" alt="Image" onerror="this.src='/placeholder_image.png'">
+    </div>
+  <% }) %>
+  <p><a href="/">Back to all images</a></p>
+</div>

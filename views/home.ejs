@@ -4,7 +4,7 @@
   <% images.forEach(img => { %>
     <div class="card">
       <img src="<%= img.imageUrl %>" alt="Image" onerror="this.src='/placeholder_image.png';">
-      <p>Shared by: <%= img.username %></p>
+      <p>Shared by: <a href="/user/<%= img.username %>"><%= img.username %></a></p>
     </div>
   <% }) %>
 </div>
