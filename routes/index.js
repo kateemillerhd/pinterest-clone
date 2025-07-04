@@ -31,4 +31,15 @@ router.post('/delete-image/:id', ensureAuth, async (req, res) => {
   res.redirect('/dashboard');
 });
 
+router.get('/user/:username', async (req, res) => {
+  const { username } = req.params;
+  const images = await Image.find({ username }).sort({ createdAt: -1 });
+
+  if (!images.length) {
+    return res.status(404).send(`No images found for user "${username}{"`);
+  }
+
+  res.render('user-wall', { images, username, user: req.user });
+});
+
 module.exports = router;
